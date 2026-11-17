@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>HopeCarPcs – Foto &amp; Video</title>
+<meta name="description" content="HopeCarPcs: Foto und Video für Autos, Events und Marken aus Vorarlberg. / Photo and video for cars, events and brands.">
+<meta name="theme-color" content="#000000">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <a class="logo" id="logo" href="#top">HopeCarPcs</a>
+  <nav>
+    <a class="hide" href="#arbeiten"><span class="de">Kunden</span><span class="en">Clients</span></a>
+    <a class="hide" href="#events">Events</a>
+    <a class="hide" href="#reels">Reels</a>
+    <a class="hide" href="#ueber"><span class="de">Über mich</span><span class="en">About</span></a>
+    <a href="#kontakt"><span class="de">Kontakt</span><span class="en">Contact</span></a>
+    <button class="lang" id="lang" type="button" aria-label="Sprache wechseln / Switch language">EN</button>
+  </nav>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div class="frame" id="hero-frame"></div>
+    <h1 id="site-name">HopeCarPcs</h1>
+    <p id="hero-sub"></p>
+  </div>
+
+  <section id="arbeiten">
+    <h2><span class="de">Kunden</span><span class="en">Clients</span></h2>
+  </section>
+
+  <section id="events">
+    <h2>Events</h2>
+  </section>
+
+  <section id="reels">
+    <h2>Reels</h2>
+    <p class="intro"><span class="de">Kurze Videos im Hochformat, bewegte Eindrücke aus meinen Shootings.</span><span class="en">Short vertical videos, moving impressions from my shoots.</span></p>
+    <div class="reels" id="reel-list"></div>
+  </section>
+
+  <section id="ueber">
+    <div class="cols">
+      <div id="about-text">
+        <h2><span class="de">Über mich</span><span class="en">About</span></h2>
+      </div>
+      <ul class="svc" id="services"></ul>
+    </div>
+  </section>
+
+  <section id="kontakt" class="contact">
+    <h2><span class="de">Lass uns arbeiten.</span><span class="en">Let’s work together.</span></h2>
+    <a class="big" id="contact-mail" href="mailto:Hopecarpcs@hotmail.com">Hopecarpcs@hotmail.com</a>
+    <div class="links">
+      <a id="contact-ig" href="https://www.instagram.com/hopecarpcs/" target="_blank" rel="noopener">@HopeCarPcs</a>
+      <span id="contact-loc">Vorarlberg, Österreich</span>
+    </div>
+  </section>
+  <noscript><p class="msg">Bitte JavaScript aktivieren, um die Seite zu sehen. Kontakt: Hopecarpcs@hotmail.com</p></noscript>
+</main>
+
+<footer>
+  <span id="foot-name">© HopeCarPcs</span>
+  <span class="fl">
+    <a id="admin-link" href="#" hidden>Admin</a>
+    <a href="impressum.html"><span class="de">Impressum &amp; Datenschutz</span><span class="en">Legal notice &amp; privacy</span></a>
+  </span>
+</footer>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Bildergalerie" hidden>
+  <button class="lb-x" type="button" aria-label="Schließen">×</button>
+  <button class="lb-p" type="button" aria-label="Zurück">‹</button>
+  <div class="lb-stage"></div>
+  <button class="lb-n" type="button" aria-label="Weiter">›</button>
+  <div class="lb-c"></div>
+</div>
+
+<script src="main.js"></script>
+</body>
+</html>

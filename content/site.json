@@ -1,0 +1,261 @@
+{
+  "name": "HopeCarPcs",
+  "hero": {
+    "image": "/img/rs6_03.jpg",
+    "position_y": 55,
+    "subtitle_de": "Foto und Video für Autos, Events und Marken.",
+    "subtitle_en": "Photo and video for cars, events and brands."
+  },
+  "clients": [
+    {
+      "title": "Eccentrical Imports AG",
+      "meta_de": "Fahrzeug- und Felgenfotografie",
+      "meta_en": "Vehicle and wheel photography",
+      "cover_position": 61,
+      "images": [
+        "/img/rs4b_02.jpg",
+        "/img/rs4b_03.jpg",
+        "/img/rs4b_01.jpg",
+        "/img/rs4b_07.jpg",
+        "/img/rs4b_06.jpg",
+        "/img/rs4b_05.jpg",
+        "/img/rs4b_04.jpg",
+        "/img/rs4b_08.jpg",
+        "/img/rs4b_09.jpg",
+        "/img/rs4a_04.jpg",
+        "/img/rs4a_03.jpg",
+        "/img/rs4a_01.jpg",
+        "/img/rs4a_02.jpg",
+        "/img/rs4a_05.jpg",
+        "/img/rs6_03.jpg",
+        "/img/rs6_02.jpg",
+        "/img/rs6_01.jpg",
+        "/img/rs6_04.jpg",
+        "/img/rs6_05.jpg",
+        "/img/oct_03.jpg",
+        "/img/oct_09.jpg",
+        "/img/oct_01.jpg",
+        "/img/oct_02.jpg",
+        "/img/oct_05.jpg",
+        "/img/oct_06.jpg",
+        "/img/oct_08.jpg",
+        "/img/oct_04.jpg",
+        "/img/oct_07.jpg",
+        "/img/buz_05.jpg",
+        "/img/buz_03.jpg",
+        "/img/buz_07.jpg",
+        "/img/buz_09.jpg",
+        "/img/buz_04.jpg",
+        "/img/buz_02.jpg",
+        "/img/buz_01.jpg",
+        "/img/buz_06.jpg",
+        "/img/buz_08.jpg",
+        "/img/buz_10.jpg"
+      ]
+    },
+    {
+      "title": "MMPower Kayseri",
+      "meta_de": "Showroom",
+      "meta_en": "Showroom",
+      "cover_position": 54,
+      "images": [
+        "/img/mm_07.jpg",
+        "/img/mm_08.jpg",
+        "/img/mm_09.jpg",
+        "/img/mm_10.jpg",
+        "/img/mm_01.jpg",
+        "/img/mm_02.jpg",
+        "/img/mm_03.jpg",
+        "/img/mm_04.jpg",
+        "/img/mm_05.jpg",
+        "/img/mm_06.jpg"
+      ]
+    },
+    {
+      "title": "Kahr Customize",
+      "meta_de": "Foliererei",
+      "meta_en": "Vehicle wrapping",
+      "cover_position": 61,
+      "images": [
+        "/img/kahr_03.jpg",
+        "/img/kahr_01.jpg",
+        "/img/kahr_02.jpg",
+        "/img/kahr_04.jpg",
+        "/img/kahr_05.jpg"
+      ]
+    },
+    {
+      "title": "Musikfreunde Bregenz",
+      "meta_de": "Konzert- und Orchesterfotografie",
+      "meta_en": "Concert and orchestra photography",
+      "cover_position": 50,
+      "images": [
+        "/img/mf_03.jpg",
+        "/img/mf_10.jpg",
+        "/img/mf_11.jpg",
+        "/img/mf_05.jpg",
+        "/img/mf_04.jpg",
+        "/img/mf_06.jpg",
+        "/img/mf_07.jpg",
+        "/img/mf_09.jpg",
+        "/img/mf_08.jpg",
+        "/img/mf_01.jpg",
+        "/img/mf_02.jpg"
+      ]
+    }
+  ],
+  "events": [
+    {
+      "title": "Stance Adria 2026",
+      "meta_de": "Eventfotografie, Kroatien",
+      "meta_en": "Event photography, Croatia",
+      "cover_position": 54,
+      "images": [
+        "/img/ad_09.jpg",
+        "/img/ad_08.jpg",
+        "/img/ad_07.jpg",
+        "/img/ad_03.jpg",
+        "/img/ad_12.jpg",
+        "/img/ad_06.jpg",
+        "/img/ad_05.jpg",
+        "/img/ad_02.jpg",
+        "/img/ad_01.jpg",
+        "/img/ad_15.jpg",
+        "/img/ad_14.jpg",
+        "/img/ad_10.jpg"
+      ]
+    },
+    {
+      "title": "Stance Approved 2.0",
+      "meta_de": "Eventfotografie für Cultworks",
+      "meta_en": "Event photography for Cultworks",
+      "cover_position": 54,
+      "images": [
+        "/img/sa_01.jpg",
+        "/img/sa_03.jpg",
+        "/img/sa_06.jpg",
+        "/img/sa_10.jpg",
+        "/img/sa_04.jpg",
+        "/img/sa_09.jpg",
+        "/img/sa_07.jpg",
+        "/img/sa_02.jpg",
+        "/img/sa_05.jpg",
+        "/img/sa_08.jpg"
+      ]
+    },
+    {
+      "title": "Tief im Wald",
+      "meta_de": "Eventfotografie, Tag und Nacht",
+      "meta_en": "Event photography, day and night",
+      "cover_position": 59,
+      "images": [
+        "/img/tw_08.jpg",
+        "/img/tw_13.jpg",
+        "/img/tw_11.jpg",
+        "/img/tw_12.jpg",
+        "/img/tw_07.jpg",
+        "/img/tw_02.jpg",
+        "/img/tw_01.jpg",
+        "/img/tw_05.jpg",
+        "/img/tw_03.jpg",
+        "/img/tw_04.jpg",
+        "/img/tw_16.jpg",
+        "/img/tw_14.jpg"
+      ]
+    }
+  ],
+  "reels": [
+    {
+      "title": "Eccentrical Imports AG",
+      "subtitle": "Audi RS4",
+      "video": "/video/rs4.mp4",
+      "poster": "/video/rs4.jpg"
+    },
+    {
+      "title": "Stance Adria 2026",
+      "subtitle": "RS4",
+      "video": "/video/stance_rs4.mp4",
+      "poster": "/video/stance_rs4.jpg"
+    },
+    {
+      "title": "Stance Adria 2026",
+      "subtitle": "Vossen",
+      "video": "/video/stance_vossen.mp4",
+      "poster": "/video/stance_vossen.jpg"
+    },
+    {
+      "title": "Stance Adria 2026",
+      "subtitle": "",
+      "video": "/video/stance_adria.mp4",
+      "poster": "/video/stance_adria.jpg"
+    },
+    {
+      "title": "Surface Factory",
+      "subtitle": "BMW E34",
+      "video": "/video/sf_e34.mp4",
+      "poster": "/video/sf_e34.jpg"
+    },
+    {
+      "title": "Surface Factory",
+      "subtitle": "G-Klasse",
+      "video": "/video/sf_gklasse.mp4",
+      "poster": "/video/sf_gklasse.jpg"
+    },
+    {
+      "title": "Surface Factory",
+      "subtitle": "Golf 1 GTI",
+      "video": "/video/sf_golf.mp4",
+      "poster": "/video/sf_golf.jpg"
+    },
+    {
+      "title": "Kahr Customize",
+      "subtitle": "Porsche GT3 RS",
+      "video": "/video/kahr_gt3.mp4",
+      "poster": "/video/kahr_gt3.jpg"
+    },
+    {
+      "title": "Tschiwik",
+      "subtitle": "",
+      "video": "/video/tschiwik.mp4",
+      "poster": "/video/tschiwik.jpg"
+    },
+    {
+      "title": "Helen Kosmetik",
+      "subtitle": "",
+      "video": "/video/helen.mp4",
+      "poster": "/video/helen.jpg"
+    }
+  ],
+  "about": {
+    "text_de": "Hinter HopeCarPcs steckt ein Faible für Autos, gutes Licht und den einen Moment, in dem alles passt. Ich fotografiere und filme Fahrzeuge, Events und Unternehmen und lasse dabei lieber die Bilder sprechen.\n\n„Hope“ ist die englische Übersetzung von „Umut“, dem türkischen Wort für Hoffnung. So gehe ich auch jedes Projekt an: mit Lust drauf und ohne Schnickschnack.",
+    "text_en": "HopeCarPcs is built on a love for cars, good light and that one moment when everything clicks. I shoot photo and video for vehicles, events and businesses, and I’d rather let the pictures do the talking.\n\n“Hope” is the English for “Umut”, the Turkish word for hope. That’s how I approach every project: with enthusiasm and without the fuss.",
+    "services": [
+      {
+        "de": "Fahrzeugfotografie",
+        "en": "Automotive photography"
+      },
+      {
+        "de": "Eventfotografie",
+        "en": "Event photography"
+      },
+      {
+        "de": "Videoproduktion und Reels",
+        "en": "Video production and reels"
+      },
+      {
+        "de": "Unternehmen und Produkte",
+        "en": "Businesses and products"
+      },
+      {
+        "de": "Shootings für Privatpersonen",
+        "en": "Shoots for private clients"
+      }
+    ]
+  },
+  "contact": {
+    "email": "Hopecarpcs@hotmail.com",
+    "instagram": "HopeCarPcs",
+    "location": "Vorarlberg, Österreich"
+  },
+  "admin_url": ""
+}

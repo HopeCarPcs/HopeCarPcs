@@ -273,3 +273,13 @@
   });
   stage.addEventListener('pointercancel', function () { drag = false; snap(); });
 })();
+
+(function(){
+  var hd=document.querySelector('header'),b=document.getElementById('burger'),m=document.getElementById('menu');
+  if(!hd||!b||!m)return;
+  function set(o){hd.classList.toggle('open',o);b.setAttribute('aria-expanded',o);document.body.style.overflow=o?'hidden':''}
+  b.addEventListener('click',function(){set(!hd.classList.contains('open'))});
+  m.addEventListener('click',function(e){if(e.target.closest('a'))set(false)});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')set(false)});
+  window.addEventListener('resize',function(){if(innerWidth>760)set(false)});
+})();

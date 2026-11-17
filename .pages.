@@ -1,0 +1,167 @@
+# Konfiguration für Pages CMS (pagescms.org).
+# Diese Datei muss im Repository als ".pages.yml" (mit Punkt am Anfang) im Hauptordner liegen.
+
+media:
+  - name: images
+    label: Bilder
+    input: img
+    output: /img
+    extensions: [jpg, jpeg, png, webp]
+    rename: safe
+  - name: videos
+    label: Videos
+    input: video
+    output: /video
+    extensions: [mp4, webm]
+    rename: safe
+
+content:
+  - name: site
+    label: Inhalte der Website
+    type: file
+    path: content/site.json
+    format: json
+    fields:
+      - name: name
+        label: Name der Website
+        type: string
+
+      - name: hero
+        label: Startbild ganz oben
+        type: object
+        fields:
+          - name: image
+            label: Bild
+            type: image
+            options:
+              media: images
+          - name: position_y
+            label: Bildausschnitt (0 = oben, 100 = unten)
+            type: number
+          - name: subtitle_de
+            label: Untertitel (Deutsch)
+            type: string
+          - name: subtitle_en
+            label: Untertitel (Englisch)
+            type: string
+
+      - name: clients
+        label: Kunden
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{title}"
+        fields:
+          - name: title
+            label: Name des Kunden
+            type: string
+          - name: meta_de
+            label: Beschreibung (Deutsch), z. B. Foliererei
+            type: string
+          - name: meta_en
+            label: Beschreibung (Englisch)
+            type: string
+          - name: cover_position
+            label: Ausschnitt des ersten Bildes (0 = oben, 50 = Mitte, 100 = unten)
+            type: number
+          - name: images
+            label: Bilder (das erste ist das große Titelbild)
+            type: image
+            options:
+              media: images
+              multiple:
+                max: 80
+
+      - name: events
+        label: Events
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{title}"
+        fields:
+          - name: title
+            label: Name des Events
+            type: string
+          - name: meta_de
+            label: Beschreibung (Deutsch), z. B. Eventfotografie, Kroatien
+            type: string
+          - name: meta_en
+            label: Beschreibung (Englisch)
+            type: string
+          - name: cover_position
+            label: Ausschnitt des ersten Bildes (0 = oben, 50 = Mitte, 100 = unten)
+            type: number
+          - name: images
+            label: Bilder (das erste ist das große Titelbild)
+            type: image
+            options:
+              media: images
+              multiple:
+                max: 80
+
+      - name: reels
+        label: Reels (Videos im Hochformat)
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{title}"
+        fields:
+          - name: title
+            label: Kunde oder Event
+            type: string
+          - name: subtitle
+            label: Zusatz, z. B. Auto (kann leer bleiben)
+            type: string
+          - name: video
+            label: Video (MP4)
+            type: file
+            options:
+              media: videos
+          - name: poster
+            label: Vorschaubild (optional)
+            type: image
+            options:
+              media: images
+
+      - name: about
+        label: Über mich
+        type: object
+        fields:
+          - name: text_de
+            label: Text (Deutsch), Absätze mit Leerzeile trennen
+            type: text
+          - name: text_en
+            label: Text (Englisch)
+            type: text
+          - name: services
+            label: Leistungen
+            type: object
+            list: true
+            fields:
+              - name: de
+                label: Deutsch
+                type: string
+              - name: en
+                label: Englisch
+                type: string
+
+      - name: contact
+        label: Kontakt
+        type: object
+        fields:
+          - name: email
+            label: E-Mail-Adresse
+            type: string
+          - name: instagram
+            label: Instagram-Name (ohne @)
+            type: string
+          - name: location
+            label: Ort
+            type: string
+
+      - name: admin_url
+        label: Admin-Link im Footer (leer lassen = nicht sichtbar)
+        type: string

@@ -54,6 +54,19 @@
       ]
     },
     {
+      "title": "Kahr Customize",
+      "meta_de": "Foliererei",
+      "meta_en": "Vehicle wrapping",
+      "cover_position": 61,
+      "images": [
+        "/img/kahr_03.jpg",
+        "/img/kahr_01.jpg",
+        "/img/kahr_02.jpg",
+        "/img/kahr_04.jpg",
+        "/img/kahr_05.jpg"
+      ]
+    },
+    {
       "title": "MMPower Kayseri",
       "meta_de": "Showroom",
       "meta_en": "Showroom",
@@ -69,19 +82,6 @@
         "/img/mm_04.jpg",
         "/img/mm_05.jpg",
         "/img/mm_06.jpg"
-      ]
-    },
-    {
-      "title": "Kahr Customize",
-      "meta_de": "Foliererei",
-      "meta_en": "Vehicle wrapping",
-      "cover_position": 61,
-      "images": [
-        "/img/kahr_03.jpg",
-        "/img/kahr_01.jpg",
-        "/img/kahr_02.jpg",
-        "/img/kahr_04.jpg",
-        "/img/kahr_05.jpg"
       ]
     },
     {
@@ -126,24 +126,6 @@
       ]
     },
     {
-      "title": "Stance Approved 2.0",
-      "meta_de": "Eventfotografie für Cultworks",
-      "meta_en": "Event photography for Cultworks",
-      "cover_position": 54,
-      "images": [
-        "/img/sa_01.jpg",
-        "/img/sa_03.jpg",
-        "/img/sa_06.jpg",
-        "/img/sa_10.jpg",
-        "/img/sa_04.jpg",
-        "/img/sa_09.jpg",
-        "/img/sa_07.jpg",
-        "/img/sa_02.jpg",
-        "/img/sa_05.jpg",
-        "/img/sa_08.jpg"
-      ]
-    },
-    {
       "title": "Tief im Wald",
       "meta_de": "Eventfotografie, Tag und Nacht",
       "meta_en": "Event photography, day and night",
@@ -162,6 +144,24 @@
         "/img/tw_16.jpg",
         "/img/tw_14.jpg"
       ]
+    },
+    {
+      "title": "Stance Approved 2.0",
+      "meta_de": "Eventfotografie für Cultworks",
+      "meta_en": "Event photography for Cultworks",
+      "cover_position": 54,
+      "images": [
+        "/img/sa_01.jpg",
+        "/img/sa_03.jpg",
+        "/img/sa_06.jpg",
+        "/img/sa_10.jpg",
+        "/img/sa_04.jpg",
+        "/img/sa_09.jpg",
+        "/img/sa_07.jpg",
+        "/img/sa_02.jpg",
+        "/img/sa_05.jpg",
+        "/img/sa_08.jpg"
+      ]
     }
   ],
   "reels": [
@@ -173,7 +173,7 @@
     },
     {
       "title": "Stance Adria 2026",
-      "subtitle": "RS4",
+      "subtitle": "Audi RS4",
       "video": "/video/stance_rs4.mp4",
       "poster": "/video/stance_rs4.jpg"
     },
@@ -196,7 +196,7 @@
     },
     {
       "title": "Surface Factory",
-      "subtitle": "G-Klasse",
+      "subtitle": "Mercedes G-Klasse",
       "video": "/video/sf_gklasse.mp4",
       "poster": "/video/sf_gklasse.jpg"
     },
@@ -214,6 +214,7 @@
     },
     {
       "title": "Tschiwik",
+      "subtitle": "Honda Legend",
       "video": "/video/tschiwik.mp4",
       "poster": "/video/tschiwik.jpg"
     },

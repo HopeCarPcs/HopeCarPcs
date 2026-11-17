@@ -185,7 +185,6 @@
     },
     {
       "title": "Stance Adria 2026",
-      "subtitle": "",
       "video": "/video/stance_adria.mp4",
       "poster": "/video/stance_adria.jpg"
     },
@@ -215,20 +214,18 @@
     },
     {
       "title": "Tschiwik",
-      "subtitle": "",
       "video": "/video/tschiwik.mp4",
       "poster": "/video/tschiwik.jpg"
     },
     {
       "title": "Helen Kosmetik",
-      "subtitle": "",
       "video": "/video/helen.mp4",
       "poster": "/video/helen.jpg"
     }
   ],
   "about": {
-    "text_de": "Hinter HopeCarPcs steckt ein Faible für Autos, gutes Licht und den einen Moment, in dem alles passt. Ich fotografiere und filme Fahrzeuge, Events und Unternehmen und lasse dabei lieber die Bilder sprechen.\n\n„Hope“ ist die englische Übersetzung von „Umut“, dem türkischen Wort für Hoffnung. So gehe ich auch jedes Projekt an: mit Lust drauf und ohne Schnickschnack.",
-    "text_en": "HopeCarPcs is built on a love for cars, good light and that one moment when everything clicks. I shoot photo and video for vehicles, events and businesses, and I’d rather let the pictures do the talking.\n\n“Hope” is the English for “Umut”, the Turkish word for hope. That’s how I approach every project: with enthusiasm and without the fuss.",
+    "text_de": "Hey, ich bin Umut. Ich mache Fotos und Videos, hauptsächlich von Autos, aber auch von Events und allem, was gut aussieht.\n\nOb dein eigenes Auto oder deine Firma: Schreib mir einfach, was du dir vorstellst, dann machen wir was draus.\n\nDer Name? „Hope“ ist das englische Wort für „Umut“.",
+    "text_en": "Hey, I'm Umut. I take photos and videos, mostly of cars, but also events and anything that looks good.\n\nWhether it's your own car or your company: just tell me what you have in mind and we'll make something of it.\n\nThe name? \"Hope\" is the English word for \"Umut\".",
     "services": [
       {
         "de": "Fahrzeugfotografie",
@@ -256,6 +253,5 @@
     "email": "Hopecarpcs@hotmail.com",
     "instagram": "HopeCarPcs",
     "location": "Vorarlberg, Österreich"
-  },
-  "admin_url": ""
+  }
 }

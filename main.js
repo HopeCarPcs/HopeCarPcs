@@ -36,6 +36,7 @@
     .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
     .then(function (d) {
       fillContact(d);
+      applyLogo(d);
       if (document.getElementById('arbeiten')) { renderHome(d); }
     })
     .catch(function () {
@@ -44,6 +45,16 @@
         m.appendChild(el('p', 'msg', 'Die Inhalte konnten nicht geladen werden. Bitte Seite neu laden.'));
       }
     });
+
+  function applyLogo(d) {
+    var a = document.querySelector('header .logo'); if (!a) return;
+    if (d.name) a.textContent = d.name;
+    if (d.logo) {
+      var im = new Image(); im.src = path(d.logo); im.alt = d.name || 'HopeCarPcs'; im.className = 'logo-img';
+      im.onerror = function () { a.textContent = d.name || 'HopeCarPcs'; };
+      a.textContent = ''; a.appendChild(im);
+    }
+  }
 
   function fillContact(d) {
     var mail = d.contact && d.contact.email;
@@ -59,7 +70,6 @@
     /* Hero */
     var h = d.hero || {};
     document.getElementById('site-name').textContent = d.name || 'HopeCarPcs';
-    document.getElementById('logo').textContent = d.name || 'HopeCarPcs';
     var sub = document.getElementById('hero-sub');
     sub.textContent = '';
     sub.appendChild(bi(h.subtitle_de, h.subtitle_en));
@@ -134,6 +144,7 @@
 
     initReveal();
     wireGalleries();
+    initParallax();
   }
 
   function renderGroup(id, items) {
@@ -187,10 +198,12 @@
   function initParallax() {
     var fr = document.getElementById('hero-frame');
     if (!fr || reduce) return;
+    if (window.CSS && CSS.supports && CSS.supports('animation-timeline: scroll()')) return;
+    if (!window.matchMedia('(hover: hover)').matches) return;
     var tick = false;
     window.addEventListener('scroll', function () {
       if (tick) return; tick = true;
-      requestAnimationFrame(function () { fr.style.transform = 'translateY(' + Math.min(window.scrollY, 900) * .2 + 'px)'; tick = false; });
+      requestAnimationFrame(function () { fr.style.transform = 'translate3d(0,' + Math.min(window.scrollY, 700) * .18 + 'px,0)'; tick = false; });
     }, { passive: true });
   }
 
@@ -426,4 +439,10 @@
   m.addEventListener('click',function(e){if(e.target.closest('a'))set(false)});
   document.addEventListener('keydown',function(e){if(e.key==='Escape')set(false)});
   window.addEventListener('resize',function(){if(innerWidth>760)set(false)});
+})();
+
+(function(){
+  var hd=document.querySelector('header');if(!hd)return;
+  var t=false;function u(){hd.classList.toggle('scrolled',window.scrollY>40)}
+  window.addEventListener('scroll',function(){if(t)return;t=true;requestAnimationFrame(function(){u();t=false})},{passive:true});u();
 })();

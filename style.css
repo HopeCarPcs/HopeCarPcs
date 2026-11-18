@@ -48,7 +48,7 @@ footer .fl{display:flex;gap:22px}
 /* Lightbox */
 .lb{position:fixed;inset:0;z-index:50;background:rgba(0,0,0,.95);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .25s}
 .lb.open{opacity:1}
-.lb-stage{position:relative;overflow:hidden;width:min(92vw,1200px);height:80vh;touch-action:pan-y;cursor:grab;-webkit-user-select:none;user-select:none;transform:scale(.96);transition:transform .35s cubic-bezier(.22,.8,.2,1)}
+.lb-stage{position:relative;overflow:hidden;width:min(92vw,1200px);height:80vh;touch-action:none;cursor:grab;-webkit-user-select:none;user-select:none;transform:scale(.96);transition:transform .35s cubic-bezier(.22,.8,.2,1)}
 .lb.open .lb-stage{transform:none}.lb-stage:active{cursor:grabbing}
 .lb-track{position:absolute;inset:0;will-change:transform}
 .lb-track .slide{position:absolute;top:0;width:100%;height:100%;padding:0 6px}

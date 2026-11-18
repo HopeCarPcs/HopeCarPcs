@@ -320,14 +320,14 @@
     preload();
   }
   function openLb(list, i, from) {
-    items = list; idx = i; last = from; lb.hidden = false; render();
+    items = list; idx = i; last = from; lb.hidden = false; resetDrag(); render();
     requestAnimationFrame(function () { lb.classList.add('open'); });
     document.body.style.overflow = 'hidden';
     lb.querySelector('.lb-x').focus();
   }
   function closeLb() {
     lb.classList.remove('open');
-    setTimeout(function () { lb.hidden = true; track.innerHTML = ''; }, 250);
+    setTimeout(function () { if (lb.classList.contains('open')) return; lb.hidden = true; track.innerHTML = ''; resetDrag(); }, 400);
     document.body.style.overflow = '';
     if (last) last.focus();
   }
@@ -375,22 +375,47 @@
     if (e.key === 'ArrowLeft') go(-1);
     if (e.key === 'ArrowRight') go(1);
   });
-  var sx = 0, st = 0, dx = 0, drag = false;
+  var sx = 0, sy = 0, st = 0, dx = 0, dy = 0, axis = '', drag = false;
+  function resetDrag() { stage.style.transition = ''; stage.style.transform = ''; stage.style.opacity = ''; lb.style.background = ''; }
+  function snapY() {
+    stage.style.transition = 'transform .3s cubic-bezier(.22,.8,.2,1), opacity .3s';
+    stage.style.transform = 'none'; stage.style.opacity = '1'; lb.style.background = '';
+  }
   stage.addEventListener('pointerdown', function (e) {
-    if (busy || items.length < 2 || (e.pointerType === 'mouse' && e.button !== 0)) return;
-    drag = true; moved = false; sx = e.clientX; st = Date.now(); dx = 0; track.style.transition = 'none';
+    if (busy || (e.pointerType === 'mouse' && e.button !== 0)) return;
+    drag = true; moved = false; axis = ''; sx = e.clientX; sy = e.clientY; st = Date.now(); dx = 0; dy = 0;
+    track.style.transition = 'none'; stage.style.transition = 'none';
     try { stage.setPointerCapture(e.pointerId); } catch (_) {}
   });
   stage.addEventListener('pointermove', function (e) {
-    if (!drag) return; dx = e.clientX - sx; if (Math.abs(dx) > 6) moved = true;
-    track.style.transform = 'translateX(' + dx + 'px)';
+    if (!drag) return; dx = e.clientX - sx; dy = e.clientY - sy;
+    if (!axis && Math.max(Math.abs(dx), Math.abs(dy)) > 8) axis = Math.abs(dy) > Math.abs(dx) ? 'y' : 'x';
+    if (axis) moved = true;
+    if (axis === 'x' && items.length > 1) track.style.transform = 'translateX(' + dx + 'px)';
+    if (axis === 'y') {
+      var k = Math.min(1, Math.abs(dy) / 420);
+      stage.style.transform = 'translateY(' + dy + 'px) scale(' + (1 - k * .12) + ')';
+      stage.style.opacity = String(1 - k * .5);
+      lb.style.background = 'rgba(0,0,0,' + (.95 * (1 - k * .85)) + ')';
+    }
   });
   stage.addEventListener('pointerup', function () {
     if (!drag) return; drag = false;
-    var v = Math.abs(dx) / Math.max(1, Date.now() - st);
-    if (Math.abs(dx) > 20 && (Math.abs(dx) > stage.clientWidth * .18 || v > .45)) go(dx < 0 ? 1 : -1); else snap();
+    var dt = Math.max(1, Date.now() - st);
+    if (axis === 'y') {
+      var v = Math.abs(dy) / dt;
+      if (Math.abs(dy) > 110 || (v > .5 && Math.abs(dy) > 30)) {
+        stage.style.transition = 'transform .28s cubic-bezier(.4,0,1,1), opacity .28s';
+        stage.style.transform = 'translateY(' + (dy < 0 ? -1 : 1) * window.innerHeight * .8 + 'px) scale(.85)';
+        stage.style.opacity = '0'; lb.style.background = 'rgba(0,0,0,0)';
+        setTimeout(closeLb, 120);
+      } else snapY();
+      return;
+    }
+    var vx = Math.abs(dx) / dt;
+    if (axis === 'x' && Math.abs(dx) > 20 && (Math.abs(dx) > stage.clientWidth * .18 || vx > .45)) go(dx < 0 ? 1 : -1); else snap();
   });
-  stage.addEventListener('pointercancel', function () { drag = false; snap(); });
+  stage.addEventListener('pointercancel', function () { if (!drag) return; drag = false; if (axis === 'y') snapY(); else snap(); });
 })();
 
 (function(){

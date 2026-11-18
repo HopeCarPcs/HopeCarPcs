@@ -23,6 +23,12 @@ content:
         label: Name der Website
         type: string
 
+      - name: logo
+        label: Logo oben links (leer lassen = Name als Text)
+        type: image
+        options:
+          media: images
+
       - name: hero
         label: Startbild ganz oben
         type: object
@@ -32,6 +38,11 @@ content:
             type: image
             options:
               media: images
+          - name: video
+            label: Video statt Bild (optional, kurz, ohne Ton; leer lassen = Bild)
+            type: file
+            options:
+              media: videos
           - name: position_y
             label: Bildausschnitt (0 = oben, 100 = unten)
             type: number

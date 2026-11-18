@@ -130,7 +130,6 @@
 
     initReveal();
     wireGalleries();
-    initParallax();
   }
 
   function renderGroup(id, items) {
@@ -200,13 +199,20 @@
 
   function mk(i) {
     var n = items[(i % items.length + items.length) % items.length].cloneNode(true);
-    var im = n.querySelector('img'); im.draggable = false; im.loading = 'eager';
+    var im = n.querySelector('img'); im.draggable = false; im.loading = 'eager'; im.decoding = 'sync';
     var s = el('div', 'slide'); s.appendChild(n); return s;
+  }
+  function place() { [].forEach.call(track.children, function (s, k) { s.style.left = ((k - 1) * 100) + '%'; }); }
+  function preload() {
+    var n = items.length;
+    for (var o = -2; o <= 2; o++) { var p = items[((idx + o) % n + n) % n].querySelector('img'); if (p) { var i = new Image(); i.src = p.currentSrc || p.src; } }
   }
   function render() {
     track.style.transition = 'none'; track.style.transform = 'translateX(0)'; track.innerHTML = '';
-    [-1, 0, 1].forEach(function (o) { var s = mk(idx + o); s.style.left = (o * 100) + '%'; track.appendChild(s); });
+    [-1, 0, 1].forEach(function (o) { track.appendChild(mk(idx + o)); });
+    place();
     cnt.textContent = (idx + 1) + ' / ' + items.length;
+    preload();
   }
   function openLb(list, i, from) {
     items = list; idx = i; last = from; lb.hidden = false; render();
@@ -226,7 +232,15 @@
     if (reduce) { idx = (idx + d + n) % n; render(); busy = false; return; }
     track.style.transition = 'transform .4s cubic-bezier(.22,.8,.2,1)';
     track.style.transform = 'translateX(' + (-d * stage.clientWidth) + 'px)';
-    setTimeout(function () { idx = (idx + d + n) % n; render(); busy = false; }, 410);
+    setTimeout(function () {
+      idx = (idx + d + n) % n;
+      track.style.transition = 'none';
+      if (d > 0) { track.removeChild(track.firstChild); track.appendChild(mk(idx + 1)); }
+      else { track.removeChild(track.lastChild); track.insertBefore(mk(idx - 1), track.firstChild); }
+      place(); track.style.transform = 'translateX(0)';
+      cnt.textContent = (idx + 1) + ' / ' + n;
+      preload(); busy = false;
+    }, 410);
   }
   function snap() { track.style.transition = 'transform .3s cubic-bezier(.22,.8,.2,1)'; track.style.transform = 'translateX(0)'; }
 

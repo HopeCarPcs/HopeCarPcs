@@ -67,6 +67,8 @@
 
   /* ---------- Startseite aufbauen ---------- */
   function renderHome(d) {
+    if (d.name) document.title = d.name + ' – Foto & Video in Vorarlberg';
+    setupWa(d.contact || {});
     /* Hero */
     var h = d.hero || {};
     document.getElementById('site-name').textContent = d.name || 'HopeCarPcs';
@@ -85,6 +87,7 @@
 
     /* Kunden + Events */
     renderGroup('arbeiten', d.clients);
+    renderGroup('privat', d.private);
     renderGroup('events', d.events);
 
     /* Reels */
@@ -115,6 +118,7 @@
     /* Über mich */
     var a = d.about || {};
     var txt = document.getElementById('about-text');
+    if (a.photo) { var ph = el('img', 'about-photo'); ph.src = path(a.photo); ph.alt = d.name || ''; ph.loading = 'lazy'; txt.appendChild(ph); }
     var de = String(a.text_de || '').split(/\n\s*\n/), en = String(a.text_en || '').split(/\n\s*\n/);
     for (var i = 0; i < Math.max(de.length, en.length); i++) {
       if (!(de[i] || en[i])) continue;
@@ -142,9 +146,85 @@
       var ad = document.getElementById('admin-link'); ad.href = d.admin_url; ad.hidden = false;
     }
 
+    renderAblauf(d);
     initReveal();
     wireGalleries();
     initParallax();
+  }
+
+  /* ---------- WhatsApp ---------- */
+  var WA_DEFAULT = '+43 69910996605';
+  function waDigits(n) {
+    var s = String(n || '').replace(/[^\d+]/g, '');
+    if (s.indexOf('+') === 0) return s.slice(1);
+    if (s.indexOf('00') === 0) return s.slice(2);
+    if (s.indexOf('0') === 0) return '43' + s.slice(1);
+    return s;
+  }
+  function setupWa(c) {
+    var num = c.whatsapp === undefined ? WA_DEFAULT : c.whatsapp;
+    var fab = document.getElementById('wa-fab'), lnk = document.getElementById('contact-wa');
+    var dg = waDigits(num);
+    if (!dg) return;
+    function href() {
+      var t = root.lang === 'en' ? 'Hi, I’m interested in a shoot. Could you tell me more?' : 'Hallo, ich interessiere mich für ein Shooting. Kannst du mir mehr dazu sagen?';
+      return 'https://wa.me/' + dg + '?text=' + encodeURIComponent(t);
+    }
+    [fab, lnk].forEach(function (a) {
+      if (!a) return;
+      a.hidden = false; a.href = href();
+      a.addEventListener('click', function () { a.href = href(); });
+    });
+    if (fab) {
+      var t = false;
+      function u() { fab.classList.toggle('show', window.scrollY > 500); }
+      window.addEventListener('scroll', function () { if (t) return; t = true; requestAnimationFrame(function () { u(); t = false; }); }, { passive: true });
+      u();
+    }
+  }
+
+  /* ---------- Ablauf + Fragen ---------- */
+  var AB_DEFAULT = {
+    title_de: 'So läuft ein Shooting', title_en: 'How a shoot works',
+    intro_de: 'Kein Stress, kein Fachchinesisch. Du schreibst mir, was du dir vorstellst, den Rest klären wir zusammen. Der Preis hängt vom Umfang ab und wird vorab mit dir besprochen.',
+    intro_en: 'No stress, no jargon. You tell me what you have in mind and we sort out the rest together. The price depends on the scope and is agreed with you beforehand.',
+    steps: [
+      { title_de: 'Anfrage', title_en: 'Enquiry', text_de: 'Schreib mir per WhatsApp oder E-Mail: Welches Auto, welcher Anlass, welche Idee?', text_en: 'Message me on WhatsApp or by email: which car, which occasion, which idea?' },
+      { title_de: 'Termin und Ort', title_en: 'Date and place', text_de: 'Wir suchen gemeinsam einen passenden Ort und Zeitpunkt, am besten bei gutem Licht.', text_en: 'Together we pick a suitable place and time, ideally in good light.' },
+      { title_de: 'Shooting', title_en: 'The shoot', text_de: 'Ich fotografiere und filme auf Wunsch. Du musst nichts können, nur dein Auto mitbringen.', text_en: 'I take the photos and, if you like, film. You don’t need to know anything, just bring your car.' },
+      { title_de: 'Bilder', title_en: 'Your images', text_de: 'Du bekommst die bearbeiteten Bilder. Wie viele und bis wann, besprechen wir vorab.', text_en: 'You get the edited images. How many and by when, we agree beforehand.' }
+    ],
+    faq: [
+      { q_de: 'Was kostet ein Shooting?', q_en: 'What does a shoot cost?', a_de: 'Das hängt vom Umfang ab. Schreib mir kurz, was du dir vorstellst, dann bekommst du eine Antwort.', a_en: 'It depends on the scope. Tell me briefly what you have in mind and I’ll get back to you.' },
+      { q_de: 'Wo fotografierst du?', q_en: 'Where do you shoot?', a_de: 'Meistens in Vorarlberg und Umgebung. Andere Orte nach Absprache.', a_en: 'Mostly in Vorarlberg and the surrounding area. Other places by arrangement.' },
+      { q_de: 'Nur Fotos oder auch Video?', q_en: 'Photos only, or video too?', a_de: 'Beides ist möglich. Auf Wunsch gibt es zusätzlich ein Reel im Hochformat.', a_en: 'Both are possible. On request you also get a vertical reel.' },
+      { q_de: 'Was, wenn das Wetter schlecht ist?', q_en: 'What if the weather is bad?', a_de: 'Dann verschieben wir den Termin.', a_en: 'Then we move the date.' }
+    ]
+  };
+  function renderAblauf(d) {
+    var sec = document.getElementById('ablauf'); if (!sec) return;
+    var a = d.ablauf || AB_DEFAULT;
+    if (!a.title_de && !a.title_en && !(a.steps || []).length && !(a.faq || []).length) { sec.hidden = true; return; }
+    var h2 = el('h2'); h2.appendChild(bi(a.title_de, a.title_en)); sec.appendChild(h2);
+    if (a.intro_de || a.intro_en) { var p = el('p', 'intro'); p.appendChild(bi(a.intro_de, a.intro_en)); sec.appendChild(p); }
+    if ((a.steps || []).length) {
+      var ol = el('ol', 'steps');
+      a.steps.forEach(function (s, i) {
+        var li = el('li'); li.appendChild(el('span', 'n', (i < 9 ? '0' : '') + (i + 1)));
+        var t = el('h3'); t.appendChild(bi(s.title_de, s.title_en)); li.appendChild(t);
+        var x = el('p'); x.appendChild(bi(s.text_de, s.text_en)); li.appendChild(x); ol.appendChild(li);
+      });
+      sec.appendChild(ol);
+    }
+    if ((a.faq || []).length) {
+      var fq = el('div', 'faq');
+      a.faq.forEach(function (f) {
+        var dt = document.createElement('details'), sm = document.createElement('summary');
+        sm.appendChild(bi(f.q_de, f.q_en)); dt.appendChild(sm);
+        var an = el('p'); an.appendChild(bi(f.a_de, f.a_en)); dt.appendChild(an); fq.appendChild(dt);
+      });
+      sec.appendChild(fq);
+    }
   }
 
   function renderGroup(id, items) {
@@ -186,9 +266,9 @@
     var io = new IntersectionObserver(function (es) {
       es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
     }, { threshold: .12, rootMargin: '0px 0px -6% 0px' });
-    [].forEach.call(document.querySelectorAll('section h2,.client,.reel-item,ul.svc li,.cols > div > p,.contact .big,.contact .links'), function (n) {
+    [].forEach.call(document.querySelectorAll('section h2,.client,.reel-item,ul.svc li,.steps li,.faq details,#ablauf .intro,.cols > div > p,.contact .big,.contact .links'), function (n) {
       n.classList.add('rv');
-      if (n.matches('.reel-item,ul.svc li')) {
+      if (n.matches('.reel-item,ul.svc li,.steps li')) {
         var i = [].indexOf.call(n.parentNode.children, n);
         n.style.transitionDelay = (Math.min(i, 8) * 90) + 'ms';
       }

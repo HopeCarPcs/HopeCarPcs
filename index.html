@@ -3,10 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>HopeCarPcs – Foto &amp; Video</title>
+<title>HopeCarPcs – Foto &amp; Video in Vorarlberg</title>
 <meta name="description" content="HopeCarPcs: Foto und Video für Autos, Events und Marken aus Vorarlberg. / Photo and video for cars, events and brands.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="HopeCarPcs – Foto &amp; Video in Vorarlberg">
+<meta property="og:description" content="Foto und Video für Autos, Events und Marken. Preis auf Anfrage.">
+<meta property="og:image" content="https://hopecarpcs.github.io/HopeCarPcs/img/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#000000">
-<link rel="stylesheet" href="style.css?v=6">
+<link rel="stylesheet" href="style.css?v=7">
 </head>
 <body>
 <header>
@@ -14,6 +19,7 @@
   <button class="burger" id="burger" type="button" aria-label="Menü / Menu" aria-expanded="false"><span></span><span></span></button>
   <nav class="menu" id="menu">
     <a href="#arbeiten"><span class="de">Kunden</span><span class="en">Clients</span></a>
+    <a href="#privat"><span class="de">Privat</span><span class="en">Private</span></a>
     <a href="#events">Events</a>
     <a href="#reels">Reels</a>
     <a href="#ueber"><span class="de">Über mich</span><span class="en">About</span></a>
@@ -33,6 +39,10 @@
     <h2><span class="de">Kunden</span><span class="en">Clients</span></h2>
   </section>
 
+  <section id="privat">
+    <h2><span class="de">Privat</span><span class="en">Private</span></h2>
+  </section>
+
   <section id="events">
     <h2>Events</h2>
   </section>
@@ -42,6 +52,8 @@
     <p class="intro"><span class="de">Kurze Videos im Hochformat, bewegte Eindrücke aus meinen Shootings.</span><span class="en">Short vertical videos, moving impressions from my shoots.</span></p>
     <div class="reels" id="reel-list"></div>
   </section>
+
+  <section id="ablauf"></section>
 
   <section id="ueber">
     <div class="cols">
@@ -57,6 +69,7 @@
     <a class="big" id="contact-mail" href="mailto:Hopecarpcs@hotmail.com">Hopecarpcs@hotmail.com</a>
     <div class="links">
       <a id="contact-ig" href="https://www.instagram.com/hopecarpcs/" target="_blank" rel="noopener">@HopeCarPcs</a>
+      <a id="contact-wa" href="#" target="_blank" rel="noopener" hidden>WhatsApp</a>
       <span id="contact-loc">Vorarlberg, Österreich</span>
     </div>
   </section>
@@ -71,6 +84,8 @@
   </span>
 </footer>
 
+<a class="wa-fab" id="wa-fab" href="#" target="_blank" rel="noopener" hidden aria-label="WhatsApp">WhatsApp</a>
+
 <div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Bildergalerie" hidden>
   <button class="lb-x" type="button" aria-label="Schließen">×</button>
   <button class="lb-p" type="button" aria-label="Zurück">‹</button>
@@ -79,6 +94,6 @@
   <div class="lb-c"></div>
 </div>
 
-<script src="main.js?v=6"></script>
+<script src="main.js?v=7"></script>
 </body>
 </html>
